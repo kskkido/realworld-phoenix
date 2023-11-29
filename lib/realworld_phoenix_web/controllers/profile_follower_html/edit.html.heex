@@ -1,0 +1,8 @@
+<.header>
+  Edit Profile followers <%= @profile_followers.id %>
+  <:subtitle>Use this form to manage profile_followers records in your database.</:subtitle>
+</.header>
+
+<.profile_follower_form changeset={@changeset} action={~p"/profile_followers/#{@profile_followers}"} />
+
+<.back navigate={~p"/profile_followers"}>Back to profile_followers</.back>

@@ -1,0 +1,22 @@
+<.header>
+  Listing Article comments
+  <:actions>
+    <.link href={~p"/article_comments/new"}>
+      <.button>New Article comment</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="article_comments" rows={@article_comments} row_click={&JS.navigate(~p"/article_comments/#{&1}")}>
+  <:action :let={article_comment}>
+    <div class="sr-only">
+      <.link navigate={~p"/article_comments/#{article_comment}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/article_comments/#{article_comment}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={article_comment}>
+    <.link href={~p"/article_comments/#{article_comment}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

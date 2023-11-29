@@ -1,0 +1,8 @@
+<.header>
+  Edit Article comment <%= @article_comment.id %>
+  <:subtitle>Use this form to manage article_comment records in your database.</:subtitle>
+</.header>
+
+<.article_comment_form changeset={@changeset} action={~p"/article_comments/#{@article_comment}"} />
+
+<.back navigate={~p"/article_comments"}>Back to article_comments</.back>

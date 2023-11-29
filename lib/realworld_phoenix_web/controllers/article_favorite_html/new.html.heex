@@ -1,0 +1,8 @@
+<.header>
+  New Article favorite
+  <:subtitle>Use this form to manage article_favorite records in your database.</:subtitle>
+</.header>
+
+<.article_favorite_form changeset={@changeset} action={~p"/article_favorites"} />
+
+<.back navigate={~p"/article_favorites"}>Back to article_favorites</.back>

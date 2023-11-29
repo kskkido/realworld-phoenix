@@ -1,0 +1,25 @@
+<.header>
+  Listing Profiles
+  <:actions>
+    <.link href={~p"/profiles/new"}>
+      <.button>New Profile</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="profiles" rows={@profiles} row_click={&JS.navigate(~p"/profiles/#{&1}")}>
+  <:col :let={profile} label="Username"><%= profile.username %></:col>
+  <:col :let={profile} label="Bio"><%= profile.bio %></:col>
+  <:col :let={profile} label="Image"><%= profile.image %></:col>
+  <:action :let={profile}>
+    <div class="sr-only">
+      <.link navigate={~p"/profiles/#{profile}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/profiles/#{profile}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={profile}>
+    <.link href={~p"/profiles/#{profile}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

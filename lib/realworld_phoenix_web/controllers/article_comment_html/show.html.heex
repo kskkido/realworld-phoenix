@@ -1,0 +1,14 @@
+<.header>
+  Article comment <%= @article_comment.id %>
+  <:subtitle>This is a article_comment record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/article_comments/#{@article_comment}/edit"}>
+      <.button>Edit article_comment</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/article_comments"}>Back to article_comments</.back>

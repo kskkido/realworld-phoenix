@@ -1,0 +1,71 @@
+<div class="home-page">
+  <div class="banner">
+    <div class="container">
+      <h1 class="logo-font">
+        conduit
+      </h1>
+      <p class="logo-font">
+        A place to share your knowledge.
+      </p>
+    </div>
+  </div>
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="feed-toggle">
+          <ul class="nav nav-pills outline-active">
+            <%= if @current_user do %>
+              <li class="nav-item">
+                <button class="nav-link">
+                  Your Feed
+                </button>
+              </li>
+            <% end %>
+            <li class="nav-item">
+              <button class="nav-link">
+                Global Feed
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div :for={article <- @articles} class="article-preview">
+            <div class="article-meta">
+              <.link href={~p"/profiles/#{article.author}"}>
+                <img src={article.author.image} />
+              </.link>
+              <div class="info">
+                <.link class="author" href={~p"/profiles/#{article.author}"}>
+                  <%= article.author.username %>
+                </.link>
+                <span class="date">
+                  <%= article.inserted_at %>
+                </span>
+              </div>
+              <button>
+                <i class="ion-heart mr-1" >
+                  0
+                </i>
+              </button>
+            </div>
+            <div class="preview-link">
+              <.link href={~p"/articles/#{article.id}"}>
+                <h1>
+                  <%= article.title %>
+                </h1>
+                <p>
+                  <%= article.description %>
+                </p>
+                <span>
+                  Read more...
+                </span>
+              </.link>
+              <ul class="tag-list">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

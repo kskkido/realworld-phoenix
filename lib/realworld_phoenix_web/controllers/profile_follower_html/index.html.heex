@@ -1,0 +1,22 @@
+<.header>
+  Listing Profile followers
+  <:actions>
+    <.link href={~p"/profile_followers/new"}>
+      <.button>New Profile followers</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="profile_followers" rows={@profile_followers_collection} row_click={&JS.navigate(~p"/profile_followers/#{&1}")}>
+  <:action :let={profile_followers}>
+    <div class="sr-only">
+      <.link navigate={~p"/profile_followers/#{profile_followers}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/profile_followers/#{profile_followers}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={profile_followers}>
+    <.link href={~p"/profile_followers/#{profile_followers}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

@@ -1,0 +1,14 @@
+<.header>
+  Profile followers <%= @profile_followers.id %>
+  <:subtitle>This is a profile_followers record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/profile_followers/#{@profile_followers}/edit"}>
+      <.button>Edit profile_followers</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/profile_followers"}>Back to profile_followers</.back>

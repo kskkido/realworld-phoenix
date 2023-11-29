@@ -1,0 +1,68 @@
+<header class="w-full flex flex-col justify-center">
+  <nav class="navbar navbar-light">
+    <div class="container">
+      <.link class="navbar-brand" href={~p"/"}>
+        conduit
+      </.link>
+      <ul class="nav navbar-nav pull-xs-right">
+        <%= if @current_user do %>
+          <li class="nav-item">
+            <.link class="nav-link" href={~p"/"}>
+              Home
+            </.link>
+          </li>
+          <li class="nav-item">
+            <.link class="nav-link" href={~p"/editor"}>
+              <i class="ion-compose">
+              </i>
+              New Article
+            </.link>
+          </li>
+          <li class="nav-item">
+            <.link class="nav-link" href={~p"/settings"}>
+              <i class="ion-gear-a">
+              </i>
+              Settings
+            </.link>
+          </li>
+          <li class="nav-item">
+            <.link class="nav-link" href={~p"/profiles/#{@current_user.profile.id}"}>
+              <img class="user-pic" src={@current_user.profile.image}>
+              <%= @current_user.profile.username %>
+            </.link>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <.link class="nav-link" href={~p"/"}>
+              Home
+            </.link>
+          </li>
+          <li class="nav-item">
+            <.link class="nav-link" href={~p"/login"}>
+              Sign in
+            </.link>
+          </li>
+          <li class="nav-item">
+            <.link class="nav-link" href={~p"/register"}>
+              Sign up
+            </.link>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main class="main">
+  <.flash_group flash={@flash} />
+  <%= @inner_content %>
+</main>
+<footer class="w-full flex flex-col justify-center">
+  <div class="container">
+    <.link class="logo-font" href={~p"/"}>
+      conduit
+    </.link>
+    <span class="attribution">
+      conduit
+    </span>
+  </div>
+</footer>

@@ -1,0 +1,22 @@
+<.header>
+  Listing Article favorites
+  <:actions>
+    <.link href={~p"/article_favorites/new"}>
+      <.button>New Article favorite</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="article_favorites" rows={@article_favorites} row_click={&JS.navigate(~p"/article_favorites/#{&1}")}>
+  <:action :let={article_favorite}>
+    <div class="sr-only">
+      <.link navigate={~p"/article_favorites/#{article_favorite}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/article_favorites/#{article_favorite}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={article_favorite}>
+    <.link href={~p"/article_favorites/#{article_favorite}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

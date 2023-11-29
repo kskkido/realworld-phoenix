@@ -1,0 +1,14 @@
+<.header>
+  Article favorite <%= @article_favorite.id %>
+  <:subtitle>This is a article_favorite record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/article_favorites/#{@article_favorite}/edit"}>
+      <.button>Edit article_favorite</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/article_favorites"}>Back to article_favorites</.back>

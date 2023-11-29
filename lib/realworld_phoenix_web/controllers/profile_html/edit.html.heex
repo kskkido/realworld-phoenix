@@ -1,0 +1,8 @@
+<.header>
+  Edit Profile <%= @profile.id %>
+  <:subtitle>Use this form to manage profile records in your database.</:subtitle>
+</.header>
+
+<.profile_form changeset={@changeset} action={~p"/profiles/#{@profile}"} />
+
+<.back navigate={~p"/profiles"}>Back to profiles</.back>
